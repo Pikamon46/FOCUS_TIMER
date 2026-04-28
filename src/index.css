@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-3xl border border-white/40 shadow-2xl;
+  }
+  .glass-panel-dark {
+    @apply bg-zinc-900/60 backdrop-blur-3xl border border-zinc-700/50 shadow-2xl;
+  }
+}
+
+.scrolling-background {
+  /* To use your pixel art image:
+     1. Drag and drop the image from the chat into the "public" folder in the files tab as 'alien-desert.jpg'.
+     2. Until then, a fallback autumn forest image will show. */
+  background-image: url('/alien-desert.jpg'), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2560&auto=format&fit=crop');
+  background-color: #d97757;
+  background-size: cover, cover; 
+  background-repeat: no-repeat, no-repeat;
+  height: 100vh; 
+  width: 100%;
+  
+  /* We use alternate (ping-pong) panning so there are no seams or irregularities */
+  animation: pan-background 40s ease-in-out infinite alternate; 
+}
+
+/* This keyframe creates the continuous smooth panning */
+@keyframes pan-background {
+  from { background-position: 0% 50%, 0% 50%; }
+  to { background-position: 100% 50%, 100% 50%; } 
+}
+
+/* Base styles to apply the scrolling background */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d97757; /* Fallback color */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
