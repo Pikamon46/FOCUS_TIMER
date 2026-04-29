@@ -18,11 +18,13 @@
      1. Drag and drop the image from the chat into the "public" folder in the files tab as 'alien-desert.jpg'.
      2. Until then, a fallback autumn forest image will show. */
   background-image: url('/alien-desert.jpg'), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=2560&auto=format&fit=crop');
-  background-color: #d97757;
+  background-color: transparent; /* Allows body color and easter egg text to show during load */
   background-size: cover, cover; 
+  background-position: center;
   background-repeat: no-repeat, no-repeat;
-  height: 100vh; 
   width: 100%;
+  background-attachment: scroll;
+  /* Removed height: 100vh to allow min-h-[100dvh] from Tailwind to work without constraint */
   
   /* We use alternate (ping-pong) panning so there are no seams or irregularities */
   animation: pan-background 40s ease-in-out infinite alternate; 
@@ -38,7 +40,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #d97757; /* Fallback color */
+  background-color: #09090b; /* Sleek dark color */
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
